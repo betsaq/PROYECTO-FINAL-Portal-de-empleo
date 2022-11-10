@@ -27,12 +27,12 @@
 
                 <div class="nacionalidad">
                     <div class="provincia">
-                        <p>Provincia:
+                        <p>
                             <h4 th:text="${usuario.provincia}">Provincia</h4>
                         </p>
                     </div>
                     <div class="pais">
-                        <p>Pais:
+                        <p>
                             <h4 th:text="${usuario.pais}">País</h4>
                         </p>
                     </div>
@@ -41,15 +41,17 @@
 
                 <div class="imagen d-flex justify-content-center align-items-centers">
                     <img  th:src="@{/usuario/perfil/__${session.usuariosession.id}__}" class="rounded-circle imagen-perfil" alt="foto de perfil">
+                <div class="editar-foto d-flex justify-content-end mb-3" >
+                    <a type="submit" class="btn btn-light" th:href="@{../usuario/panel/modificar-foto/__${session.usuariosession.id}__}"><i class='bx bx-message-square-edit'></i></a>
+                </div> 
+                
                 </div>
-
+                
             </div>
 
         </header>
         <!--BOTON PARA EDITAR FOTO-->
-        <div class="editar-foto d-flex justify-content-end mb-3" >
-            <a type="submit" class="btn btn-light" th:href="@{../usuario/panel/modificar-foto/__${session.usuariosession.id}__}"><i class='bx bx-message-square-edit'>CAMBIAR FOTO PERFIL</i></a>
-        </div>   
+
 
         <main>
             <div class="container2">

@@ -344,18 +344,22 @@
 
 
 /*NUEVOS ESTILOS PANEL DE USUARIO*/
-.container_1{
+
+
+.container_1 {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 5px solid rgb(255, 217, 0);
+    border: 5px solid rgb(9 9 8);
     padding: 10px;
     border-radius: 20px;
-    background-image: url("../img/wallpaperPanel.jpeg");
+    background-image: url(../img/wallpaperPanel.jpeg);
     background-repeat: repeat;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    flex-direction: row-reverse;
+    align-content: flex-start;
 }
 
 .container_nav{
@@ -406,29 +410,24 @@
     width: 170px;
     height:170px;
     text-align: center;
-   
+
     display: flex;
     justify-content: center;
     align-items: center
 }
 
 /*Main 1*/
-.container2{
+.container2 {
     display: flex;
     justify-content: space-between;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 5px solid rgb(255, 217, 0);
-    padding: 10px;
+    /* border: 5px solid rgb(255, 217, 0); */
+    /* padding: 10px; */
     border-radius: 20px;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    /*background: #ecf2f2;
-   /*background: linear-gradient(0deg, rgba(236,242,242,1) 0%, rgba(253,205,45,0.8463760504201681) 100%);*/
-    /*#ecf2f2 - #fdcd2d*/
-
-    background: rgb(253,205,45);
-    background: linear-gradient(0deg, rgba(253,205,45,1) 0%, rgba(236,242,242,1) 100%);
-
+    /* background: rgb(253,205,45); */
+    /* background: linear-gradient(0deg, rgba(253,205,45,1) 0%, rgba(236,242,242,1) 100%); */
 }
 
 .acercademi{
@@ -463,17 +462,16 @@
 
 /*Main 2*/
 
-.flex-container{
+.flex-container {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     padding: 20px;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 5px solid rgba(234, 219, 13, 0.948);
-    background: rgb(236,242,242);
-    background: linear-gradient(0deg, rgba(236,242,242,1) 0%, rgba(253,205,45,0.8463760504201681) 100%);
-
+    /* border: 5px solid rgba(234, 219, 13, 0.948); */
+    /* background: rgb(236,242,242); */
+    /* background: linear-gradient(0deg, rgba(236,242,242,1) 0%, rgba(253,205,45,0.8463760504201681) 100%); */
 }
 
 .container-caja{
@@ -500,6 +498,7 @@
 }
 
 .cuerpo{
+    background-image: url(../img/wallpaperPanel.jpeg);
     margin: 15px;
     padding: 10px;
     width: 95%;

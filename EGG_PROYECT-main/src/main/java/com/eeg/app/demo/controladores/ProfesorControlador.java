@@ -2,7 +2,7 @@ package com.eeg.app.demo.controladores;
 
 import java.util.List;
 import com.eeg.app.demo.entidad.ProfesorEntidad;
-import com.eeg.app.demo.servicio.ProfesorServicio;
+import com.eeg.app.demo.servicio.impl.ProfesorServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProfesorControlador {
 
     @Autowired
-    public ProfesorServicio profesorServicio;
+    public ProfesorServicioImpl profesorServicio;
 
     @GetMapping("/lista")
     public String listarProfesor(ModelMap modelo) {

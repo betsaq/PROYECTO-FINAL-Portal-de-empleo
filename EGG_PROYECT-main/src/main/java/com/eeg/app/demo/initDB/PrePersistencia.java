@@ -32,6 +32,19 @@ public class PrePersistencia implements CommandLineRunner {
     @Value("${cust.data.password2}")
     private String pass2;
 
+    
+      @Value("${cust.data.email3}")
+    private String email3;
+    @Value("${cust.data.password3}")
+    private String pass3;
+    
+     @Value("${cust.data.email4}")
+    private String email4;
+    @Value("${cust.data.password4}")
+    private String pass4;
+    
+    
+    
     @Override
     public void run(String... arg) throws Exception {
 
@@ -48,14 +61,38 @@ public class PrePersistencia implements CommandLineRunner {
         listaUsuariosPersistidos.add(userAdmin);
 
         /*Datos usuario prueba*/
-        UsuarioEntidad usuarioPrueba = new UsuarioEntidad();
-        usuarioPrueba.setNombre("Ismael");
-        usuarioPrueba.setApellido("Rosas");
-        usuarioPrueba.setPassword(new BCryptPasswordEncoder().encode(pass2));
-        usuarioPrueba.setEmail(email2);
-        usuarioPrueba.setAlta(new Date());
-        usuarioPrueba.setRol(Rol.USER);
-        listaUsuariosPersistidos.add(usuarioPrueba);
+        UsuarioEntidad usuarioPrueba2 = new UsuarioEntidad();
+        usuarioPrueba2.setNombre("Betty");
+        usuarioPrueba2.setApellido("Quevedo Gómez");
+        usuarioPrueba2.setPassword(new BCryptPasswordEncoder().encode(pass2));
+        usuarioPrueba2.setEmail(email2);
+        usuarioPrueba2.setAlta(new Date());
+        usuarioPrueba2.setRol(Rol.USER);
+        listaUsuariosPersistidos.add(usuarioPrueba2);
+        
+         /*Datos usuario prueba*/
+        UsuarioEntidad usuarioPrueba3 = new UsuarioEntidad();
+        usuarioPrueba3.setNombre("Douglas");
+        usuarioPrueba3.setApellido("Narinas");
+        usuarioPrueba3.setPassword(new BCryptPasswordEncoder().encode(pass3));
+        usuarioPrueba3.setEmail(email3);
+        usuarioPrueba3.setAlta(new Date());
+        usuarioPrueba3.setRol(Rol.USER);
+        listaUsuariosPersistidos.add(usuarioPrueba3);
+        
+        
+          /*Datos usuario prueba*/
+        UsuarioEntidad usuarioPrueba4 = new UsuarioEntidad();
+        usuarioPrueba4.setNombre("Bart");
+        usuarioPrueba4.setApellido("Simpsons");
+        usuarioPrueba4.setPassword(new BCryptPasswordEncoder().encode(pass4));
+        usuarioPrueba4.setEmail(email4);
+        usuarioPrueba4.setAlta(new Date());
+        usuarioPrueba4.setRol(Rol.USER);
+        listaUsuariosPersistidos.add(usuarioPrueba4);
+        
+        
+        
 
         listaUsuariosPersistidos.forEach(u -> {
             usuarioRepositorio.save(u);
