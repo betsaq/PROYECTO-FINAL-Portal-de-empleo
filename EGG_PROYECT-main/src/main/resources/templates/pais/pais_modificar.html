@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/pais/modificado/__${pais.id}__}" method="POST">
+
+                    <h3 class="titulo-form">EDITAR PAÍS</h3>
+
+                    <!-- Id-->
+                    <p hidden ><strong>ID actual:</strong> <span th:text="${pais.id}"name="id"></span></p>
+
+                    <!-- Nombre -->
+                    <div class="form-group m-2 py-3 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre"placeholder="modificar pais" >
+                            <label class=" formulario_input_placeholder" for="idnombre"><p th:text="${pais.nombre}"name="id"></p></label>
+                    </div>
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-primary">ACEPTAR</button>
+                        <a th:href="@{/pais/listar}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

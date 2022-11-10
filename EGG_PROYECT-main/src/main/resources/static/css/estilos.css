@@ -1,0 +1,506 @@
+
+:root{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.displeyBienvenida{
+    animation-name: bienvenida;
+    animation-duration: 2s;
+    font-weight: 700;
+}
+
+.header_border{
+    border-bottom: 1px solid #001921
+}
+
+@keyframes bienvenida{
+    0% {
+        transform: rotateZ(25deg);
+        transform: scale(1.5);
+    }
+
+    50% {
+        transform: rotateZ(-25deg);
+    }
+
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+
+
+.ocultar{
+    display: none;
+}
+
+
+@keyframes cambiarforma {
+
+    0% {
+        border-radius: 113px 100px 200px 400px;
+    }
+
+    25% {
+        border-radius:100px 113px 200px 400px;
+        transform: scale(0.2);
+        height: 350px;
+        width: 350px;
+        transform: rotateZ(25deg);
+    }
+
+    35% {
+        border-radius:400px 113px 1200px 400px;
+        transform: scale(0.8);
+        width: 200px;
+        transform: rotateZ(10deg);
+    }
+
+    55%{
+        border-radius: 573px 909px 400px 400px;
+        transform: scale(1.2);
+        top:120px;
+        height: 90px;
+        width: 90px;
+        transform: rotateZ(78deg);
+    }
+
+    75%{
+        border-radius:400px 113px 800px 400px;
+        transform: scale(0.8);
+        width: 200px;
+        top:300px;
+        transform: rotateZ(10deg);
+    }
+
+    80%{
+        border-radius: 313px 20px 200px 400px;
+        height: 200px;
+        width: 200px;
+        transform: rotateZ(18deg);
+    }
+
+    90%{
+        border-radius: 431px 100px 500px 200px;
+        transform: rotateZ(28deg);
+    }
+
+    95%{
+        border-radius: 113px 500px 200px 400px;
+        transform: rotateZ(68deg);
+    }
+
+
+}
+
+
+
+
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inicio{
+    background-image: url(//aula-virtual.eggcooperation.com/pluginfile.php/1/theme_remui/loginsettingpic/1664821650/Mesa%20de%20trabajo%203-100.jpg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-position: center top;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.index{
+    background:  url(//aula-virtual.eggcooperation.com/pluginfile.php/1/theme_remui/loginsettingpic/1664821650/Mesa%20de%20trabajo%203-100.jpg);
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+    background-color: #85FFBD;
+    background-image: url(//aula-virtual.eggcooperation.com/pluginfile.php/1/theme_remui/loginsettingpic/1664821650/Mesa%20de%20trabajo%203-100.jpg);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+
+.contenedor_formulario {
+    position: relative;
+    width: 25%;
+    height: 400px;
+    margin-right: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.formulario {
+    background-color: rgba(245, 245, 220, 0.3);
+    padding:18px;
+    opacity: 100%;
+    padding:15px;
+    border-radius: 12px;
+    border: 1px solid rgba(23, 41, 31,0.2);
+    box-shadow: 2px 2px 10px  #001921
+}
+
+
+.formulario>h2 {
+    font-size: 30px;
+    padding: 20px;
+}
+
+.formulario_inputs {
+    border: none;
+    border-radius: 6px;
+    padding: 2px;
+    border-bottom: 1px solid #17291f;
+}
+
+
+.formulario_inputs:focus {
+    outline: none;
+    color: rgb(45, 78, 61);
+    border-bottom: 1px;
+}
+
+
+.formulario_input_placeholder {
+    position: absolute;
+    z-index: 99;
+    left: 0px;
+    top: -14px;
+    transition: 0.5s ease-in-out all;
+    pointer-events: none;
+
+}
+
+/*.formulario_inputs:focus~.formulario_input_placeholder,
+.formulario_inputs:valid~.formulario_input_placeholder {
+    position: absolute;
+    z-index: 99;
+    top: -12px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(3, 38, 29);
+}*/
+
+
+.link_registrar {
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+    color: rgba(255, 255, 0, 0.4);
+}
+
+.link:hover {
+    color: yellow;
+}
+
+.navbar{
+    justify-content: center;
+    background-color: #FECB00;
+    height: 35px;
+    align-content: center;
+}
+
+.titulo-form{
+    font-size: 25px;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+/*====ESTILOS PARA USUARIO====*/
+
+.form-perfil-usuario{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-perfil-usuario .perfil-usuario-header{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    background-color: #FECB04;
+    margin-bottom: 1.25rem;
+    border-radius: 0 0 20px 20px
+}
+
+.form-perfil-usuario .perfil-usuario-portada{
+    display: flex;
+    width: 80%;
+    height: 17rem;
+    background-color: #FECB04;
+    border-radius: 0  0 20px 20px;
+}
+
+.form-perfil-usuario .perfil-usuario-avatar{
+    display: flex;
+
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #ffffff;
+    background-color: rgba(237, 236, 243, 0.535);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    bottom: 0px;
+    top:15px;
+    left: calc(95% - 90px);
+    position: relative;
+}
+
+.form-perfil-usuario .perfil-usuario-body {
+    width: 90%;
+}
+
+.form-perfil-usuario .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 2rem;
+}
+
+.form-perfil-usuario .perfil-usuario-body .texto{
+    color: black;
+    font-size: 0.95em;
+    justify-content: center
+}
+
+.form-perfil-usuario .perfil-usuario-footer,
+.form-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.25rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.form-perfil-usuario .perfil-usuario-bio{
+    margin-bottom: 1.25rem;
+    text-align: center;
+    background-color: #ffff88;
+    box-shadow: 2px 2px 10px  #001921;
+    opacity: 90%;
+}
+
+.form-perfil-usuario .lista-datos {
+    width: 50%;
+    list-style: none;
+}
+
+.form-perfil-usuario .lista-datos li {
+    padding: 5px 0;
+}
+
+/*ESTILOS PARA SECCION DE ERRORES*/
+.mensajeCodigo{
+    font-size: 50px;
+    position: absolute;
+    top: 40%;
+    left: 48.5%
+}
+.mensajeError{
+    font-size: 22px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 37.5%
+}
+
+
+
+
+/*MENSAJES DE EXITO Y ERROR*/
+
+.card-exito{
+    background-color: #43685B;
+}
+
+.card-error{
+    background-color: #EC405A;
+}
+
+
+
+
+/*NUEVOS ESTILOS PANEL DE USUARIO*/
+.container_1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 5px solid rgb(255, 217, 0);
+    padding: 10px;
+    border-radius: 20px;
+    background-image: url("../img/wallpaperPanel.jpeg");
+    background-repeat: repeat;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.container_nav{
+    display:flex;
+    height: 180px;
+    width: 250px;
+    font-size: 1.1rem;
+    margin: 10px;
+    border-radius: 10px;
+
+    opacity: 70%;
+
+
+}
+
+.list{
+    height: 30px;
+    width: 200px;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ecf2f2;
+    list-style-type: none;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.nombre{
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height:180px;
+    border: 1px solid black;
+    border-radius: 100px;
+    background-color: white;
+}
+
+.imagen-perfil{
+    width: 170px;
+    height:170px;
+    text-align: center;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/*Main 1*/
+.container2{
+    display: flex;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 5px solid rgb(255, 217, 0);
+    padding: 10px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    /*background: #ecf2f2;
+   /*background: linear-gradient(0deg, rgba(236,242,242,1) 0%, rgba(253,205,45,0.8463760504201681) 100%);*/
+    /*#ecf2f2 - #fdcd2d*/
+
+    background: rgb(253,205,45);
+    background: linear-gradient(0deg, rgba(253,205,45,1) 0%, rgba(236,242,242,1) 100%);
+
+}
+
+.acercademi{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 80px;
+    background-color: #ecf2f2;
+    box-sizing: border-box;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 50px;
+
+}
+
+.textoacercademi{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 200px;
+    background-color: #ecf2f2;
+    box-sizing: border-box;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 30px;
+
+}
+
+/*Main 2*/
+
+.flex-container{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 5px solid rgba(234, 219, 13, 0.948);
+    background: rgb(236,242,242);
+    background: linear-gradient(0deg, rgba(236,242,242,1) 0%, rgba(253,205,45,0.8463760504201681) 100%);
+
+}
+
+.container-caja{
+    border: 1px solid black;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 25px;
+    justify-content: center;
+    background: #ecf2f2;
+}
+
+.titulo-caja h3{
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px;
+    background: #fdcd2d;
+}
+
+.cuerpo{
+    margin: 15px;
+    padding: 10px;
+    width: 95%;
+}

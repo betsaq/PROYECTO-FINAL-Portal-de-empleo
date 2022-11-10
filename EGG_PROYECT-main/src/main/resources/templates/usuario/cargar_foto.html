@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/usuario/modificado/cargar-foto/__${usuario.id}__}" method="POST" enctype="multipart/form-data">
+
+                    <h3 class="titulo-form">AGREGA UNA FOTO</h3>
+
+                    <!-- Id-->
+                    <p hidden ><strong>ID actual:</strong> <span th:text="${usuario.id}"name="id"></span></p>
+
+                    <!-- Cargar Foto -->
+                    <div class="form-control-lg">
+                        <input type="file" class="form-control-sm text-light" name="archivo">
+                    </div>
+
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-primary">ACEPTAR</button>
+                        <a th:href="@{/usuario/panel}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

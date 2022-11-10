@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+    <body>
+        <div class="contenedor">
+
+            <div class="contenedor_formulario">
+
+                <!-- Formulario -->
+                <form class="formulario"  style="height:600px" th:action="@{/usuario/editado/__${usuario.id}__}" method="POST">
+
+                    <h3 class="titulo-form text-center">EDITAR PERFIL</h3>
+                    <!-- Nombre -->
+                    <div class="form-group m-1 py-2 d-flex flex-column">
+                        <input  autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre" th:value="${usuario.nombre}" placeholder="Nombre" >
+                            <label class=" formulario_input_placeholder" for="idnombre"></label>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group m-1 py-2 d-flex flex-column">
+                        <input  type="text" class="form-group  formulario_inputs" id="idapellido" name="apellido"  th:value="${usuario.apellido}"placeholder="Apellido" >
+                            <label class="formulario_input_placeholder" for="idapellido"></label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group m-1 py-2 d-flex flex-column">
+                        <input  type="email" class="form-group formulario_inputs "  id="idemail" name="email" th:value="${usuario.email}" placeholder="Email" >
+                            <label class="formulario_input_placeholder" for="idemail"></label>
+                    </div>
+
+                    <!--Pais--> 
+                    <div class="form-group m-1 py-2 d-flex flex-column">
+                        <input  type="text" class="form-group formulario_inputs" id="idpais"  name="pais" th:value="${usuario.pais}" placeholder="Pais">
+                            <label class="formulario_input_placeholder" for="idpais"></label>
+                    </div>
+
+                    <!--Provincia--> 
+                    <div class="form-group m-1 py-2 d-flex flex-column">
+                        <input  type="text" class="form-group formulario_inputs" id="idpais"  name="provincia"  th:value="${usuario.provincia}"placeholder="Provincia">
+                            <label class="formulario_input_placeholder" for="idpais"></label>
+                    </div>
+
+                    <!-- descripcion -->
+                    <div>
+                        <textarea class="formulario_inputs" name="descripcion" rows="2" cols="47" placeholder="Ingresar una pequenha descripcion"  th:value="${usuario.descripcion}"th:text="${usuario.descripcion}"></textarea>
+                    </div>
+
+
+                    <!-- BOTON DE MODIFICAR -->
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn  btn-primary">EDITAR</button>
+                        <a type="submit" th:href="@{/usuario/panel}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+    <!-- Fragmento html -->
+    <!-- Fragmento html -->
+    <head th:replace="/fragment/head :: head"></head>
+    <body class="inicio">
+
+
+        <div class=" d-flex flex-column justify-content-center">
+            <p class="mensajeCodigo" th:text="${codigo}" ></p>
+            <p class="mensajeError" th:text="${mensaje}" ></p>
+            <a class=" btn btn-secondary text-light fw-bold" th:href="@{/usuario/panel}">Volver</a>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body class="inicio">
+        <!-- Buscador -->
+        <header th:replace="/fragment/nav_admin :: header"></header>
+
+        <!--ADVENTENCIA-->
+        <div class="warning">
+            <div th:if="${error != null}"class="card text-white bg-danger  m-4">
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+
+            <div th:if="${ok != null}"class="card text-white  card-exito  m-4">
+                <div class="card-body">
+                    <h5 class="card-title">Exito</h5>
+                    <p class="card-text" th:text="${ok}"></p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="d-flex flex-column text-center align-items-center justify-content-around">
+
+            <div class="col-12 d-flex justify-content-center mb-3">
+                <form th:action="@{/usuario/busqueda}" method="GET" class="d-flex">
+                    <input type="text"  name="email"  class=" p-1" placeholder="filtrar usuarios por email">
+                        <button  type="submit" class="btn btn-secondary mx-2">filtrar</button>
+                </form>
+            </div>
+
+        </nav>
+        <!-- Tabla de lista de usuarios -->
+
+        <div class="container-fluid mt-3">
+
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped table-dark">
+
+                        <thead>
+                            <tr>
+                                <th class=" text-center " >REPORTE DE USUARIOS </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Rol</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Mail</th>
+                                <!--<th scope="col">Pais</th>-->
+                                <!--<th scope="col">Provincia</th>-->
+                                <th scope="col">Fecha de Alta</th>
+                                <th scope="col-3"></th>
+                                <th scope="col-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody th:each="usuario: ${usuario}">
+                            <tr>
+                                <td th:text="${usuario.rol}"></td>
+                                <td th:text="${usuario.nombre}"></td>
+                                <td th:text="${usuario.apellido}"></td>
+                                <td th:text="${usuario.email}"></td>
+                                <!--<td th:text="${usuario.pais}"></td>-->
+                                <!--<td th:text="${usuario.provincia}"></td>-->
+                                <td th:text="${usuario.alta}"></td>
+                                <td>
+
+                                    <a class="link" th:href="@{/usuario/modificar/__${usuario.id}__}" 
+                                       role="button"> <i class='bx bx-edit'></i></a>
+                                </td>
+                                <td>
+                                    <a class="link" th:href="@{/usuario/eliminar/__${usuario.id}__}" 
+                                       role="button"> <i class='bx bx-no-entry'></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

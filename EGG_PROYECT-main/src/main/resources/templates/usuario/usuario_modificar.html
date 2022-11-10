@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/usuario/modificado/__${usuario.id}__}" method="POST">
+
+                    <h3 class="titulo-form">EDITAR USUARIO</h3>
+
+                    <!-- Id-->
+                    <p hidden ><strong>ID actual:</strong> <span th:text="${usuario.id}"name="id"></span></p>
+
+                    <!-- Nombre -->
+                    <div class="form-group m-2 py-2 d-flex flex-column">
+                        <input  autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre" placeholder="Nombre" >
+                            <label class=" formulario_input_placeholder" for="idnombre"><p th:text="${usuario.nombre}"name="id"></p></label>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group m-2 py-2 d-flex flex-column">
+                        <input  type="text" class="form-group  formulario_inputs" id="idapellido" name="apellido" placeholder="Apellido" >
+                            <label class="formulario_input_placeholder" for="idapellido"><p th:text="${usuario.apellido}"name="id"></p></label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group m-2 py-2 d-flex flex-column">
+                        <input  type="email" class="form-group formulario_inputs "  id="idemail" name="email" placeholder="Email" >
+                            <label class="formulario_input_placeholder" for="idemail"><p th:text="${usuario.email}"name="id"></p></label>
+                    </div>
+
+
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-primary">EDITAR</button>
+                        <a th:href="@{/usuario/listar}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

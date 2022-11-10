@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/capacitacion/modificado/__${capacitacion.id}__}" method="POST">
+
+                    <h3 class="titulo-form">EDITAR CAPACITACIÓN</h3>
+
+                    <!-- Id-->
+                    <p hidden ><strong>ID actual:</strong> <span th:text="${capacitacion.id}"name="id"></span></p>
+                    <!-- Nombre de la capacitacion-->
+
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre"  placeholder="Ingresar nombre de la capacitacion">
+                    </div>
+
+                    <!-- Nivel -->
+                    <div class="form-control-lg text-center">
+                        <select name="nivel">
+                            <option>Seleccionar Nivel</option>
+                            <option>Basico</option>
+                            <option>Intermedio</option>
+                            <option>Avanzado</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Utilizado para asignar el interes al usuario-->
+                    <input required  hidden type="email" class="form-group formulario_inputs" id="idemail" name="email"  placeholder="Ingresar email" th:value="${capacitacion.usuario.email}">
+                    
+                        <!-- Fecha Egreso -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idfinalizacion" name="fechaEgreso"  placeholder="Ingresar año de egreso">
+                    </div>
+
+                    <!-- Intitucion -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idfinalizacion" name="institucion"  placeholder="Ingresar institucion ">
+                    </div>
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-primary">EDITAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head">
+
+    </head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <form class="formulario" th:action="@{/interes/registrado/__${usuario.id}__}" method="POST">
+
+                    <h3 class="titulo-form">AGREGAR INTERÉS</h3>
+                        
+
+                    <!-- Nombre de la capacitacion-->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre"  placeholder="Ingresar nombre del interes">
+                    </div>
+
+                    <!-- Utilizado para asignar el interes al usuario-->
+                    <input required  hidden type="email" class="form-group formulario_inputs" id="idemail" name="email"  placeholder="Ingresar email" th:value="${usuario.email}">
+
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-warning">AGREGAR</button>
+                        <a th:href="@{/usuario/panel}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

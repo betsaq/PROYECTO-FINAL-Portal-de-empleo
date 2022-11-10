@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/interes/modificado/__${interes.id}__}" method="POST">
+
+                    <h3 class="titulo-form">EDITAR INTERÉS</h3>
+
+                    <p hidden ><strong>ID</strong> <span th:text="${interes.id}"name="id"></span></p>
+                    <!--<p hidden ><strong>Email</strong> <span th:text="${interes.id} name="id value="${usuario.email}"></span></p>-->
+
+
+                    <!-- Nombre deL Interes-->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre"  placeholder="Ingresar nombre del interes">
+                    </div>
+
+                    <!-- Email Usuario -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="email" class="form-group formulario_inputs" id="idemail" name="email"  placeholder="Ingresar email">
+                    </div>
+
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-primary">EDITAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

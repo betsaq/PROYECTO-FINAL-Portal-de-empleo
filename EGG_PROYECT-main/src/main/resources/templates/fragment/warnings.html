@@ -1,0 +1,46 @@
+<nav class="navbar d-flex justify-content-between " th:if"${nombre !=null}">
+
+     <a class="navbar-brand" href="#">WELCOME <span th:text="${nombre}"><span></a>
+
+                <div class="d-flex justify-content-end">
+
+                    <!--Libro-->
+                    <div class="dropdown d-flex justify-content-center">
+                        <a class="btn-login dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Book
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <a sec:authorize="hasAnyRole('ADMIN', 'USER')" class="dropdown-item" th:href="@{../libro/list}">To list</a>
+                            <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{../libro/save}">Add Books</a>
+                        </div>
+                    </div>
+
+                    <!--Autor-->
+                    <div class="dropdown d-flex justify-content-center">
+                        <a class="btn-login dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Author
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <a sec:authorize="hasAnyRole('ADMIN', 'USER')" class="dropdown-item" th:href="@{../autor/list}">To list</a>
+                            <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{../autor/save}">Add Ahutor</a>
+                        </div>
+                    </div>
+
+                    <!--Editorial-->
+                    <div class="dropdown d-flex justify-content-center">
+                        <a class="btn-login dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Editorial
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <a sec:authorize="hasAnyRole('ADMIN', 'USER')" class="dropdown-item" th:href="@{../editorial/list}">To list</a>
+                            <a  sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{../editorial/save}">Add Editorial</a>
+                        </div>
+                    </div>
+
+                    <a class="btn-login" th:href="@{../logout}">Log out</a>
+
+                </div>
+                </nav>

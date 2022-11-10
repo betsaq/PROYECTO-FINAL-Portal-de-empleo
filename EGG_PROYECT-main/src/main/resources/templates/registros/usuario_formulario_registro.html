@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body>
+        <nav class="navbar">
+            <h2 class="titulo-navbar">PORTAL DE CAPACITACIÓN Y EMPLEO PARA LA COMUNIDAD DE EGGRESADOS</h2>
+        </nav>
+        <div class="contenedor">
+
+
+            <div class="contenedor_formulario">
+                <!-- Formulario -->
+                <form class="formulario" th:action="@{/usuario/registrar}" method="POST">
+
+                    <h3 class="titulo-form">REGISTRO DE USUARIO</h3>
+
+                    <!-- Nombre -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required autofocus type="text" class="form-group formulario_inputs" id="idnombre" name="nombre" placeholder="Nombre" >
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required type="text" class="form-group  formulario_inputs" id="idapellido" name="apellido" placeholder="Apellido" >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required type="email" class="form-group formulario_inputs "  id="idemail" name="email" placeholder="Email" >
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group m-2 py-1 d-flex flex-column">
+                        <input required type="password" class="form-group formulario_inputs "  id="idpassword" name="password" placeholder="Contrasena" >
+                    </div>
+                    <div class="d-grid gap-2 text-center">
+                        <button type="submit" class="btn btn-md btn-warning">REGISTRAR</button>
+                        <a th:href="@{/}" class="text-dark fw-bold" style="text-decoration:  none" >ATRÁS</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

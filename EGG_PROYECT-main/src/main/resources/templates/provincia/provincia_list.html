@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="/fragment/head :: head"></head>
+
+    <body class="inicio">
+        <header th:replace="/fragment/nav_admin :: header"></header>
+
+
+        <!--ADVENTENCIA-->
+        <div class="warning">
+            <div th:if="${error != null}"class="card text-white bg-danger  m-4">
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+
+            <div th:if="${ok != null}"class="card text-white  card-exito  m-4">
+                <div class="card-body">
+                    <h5 class="card-title">Exito</h5>
+                    <p class="card-text" th:text="${ok}"></p>
+                </div>
+            </div>
+            <div th:if="${ausencia != null}"class="card text-white  bg-secondary  m-4">
+                <div class="card-body">
+                    <h5 class="card-title">Atencion</h5>
+                    <p class="card-text" th:text="${ausencia}"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="d-flex flex-column text-center align-items-center justify-content-around">
+
+            <div class="col-12 d-flex justify-content-center mb-3">
+                <form th:action="@{/provincia/busqueda}" method="GET" class="d-flex">
+                    <input type="text"  name="nombre"  class=" p-1" placeholder="filtrar provincia por nombre">
+                        <button  type="submit" class="btn btn-secondary mx-2">filtrar</button>
+                </form>
+            </div>
+
+
+        </nav>
+
+
+        <!-- Tabla de lista de provinciaes -->
+        <main>
+            <!-- Registrar provincia-->
+            <div class="col-6 mx-5">
+                <button type="button" class="btn btn-warning px-4"> <a class="link_registrar text-dark" th:href="@{/provincia/registro}" style="text-decoration:none">Agregar provincia</a></button>
+            </div>
+            <div class="container-fluid mt-3">
+
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped table-dark">
+                            <thead>
+                                <tr>
+                                    <th class="titulo-tabla text-center">SECCION PROVINCIA</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col-3">Nombre</th>
+                                    <th scope="col-3">Editar </th>
+                                    <th scope="col-3">Eliminar </th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="provincia: ${provincia}">
+                                <tr>
+                                    <!--  <th scope="row" th:text="${provincia.id}"></th>-->
+                                    <td th:text="${provincia.nombre}"></td>
+                                    <td>
+                                        <a class="link" th:href="@{/provincia/modificar/__${provincia.id}__}" 
+                                           role="button"> <i class='bx bx-edit'></i></a>
+                                    </td>
+                                    <td>
+                                        <a class="link" th:href="@{/provincia/eliminar/__${provincia.id}__}" 
+                                           role="button">  <i class='bx bx-no-entry'></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

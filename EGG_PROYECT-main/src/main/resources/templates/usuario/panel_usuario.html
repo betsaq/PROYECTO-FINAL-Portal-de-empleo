@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org"  >
+
+    <!-- Fragmento html -->
+    <head th:replace="/fragment/head :: head"></head>
+
+
+    <body class="cuerpo">
+        <header class="header">
+
+            <div class="container_1">
+
+                <div class="container_nav" >
+                    <ul class="nav_list d-flex flex-column text-center">
+                        <li class="list m-2"><a  style="text-decoration: none" class="text-black" th:if="${session.usuariosession != null}"  th:href="@{/usuario/editar/__${session.usuariosession.id}__}">Editar Perfil</a></li>
+                        <li class="list m-2"><a  style="text-decoration: none" class="text-black" th:if="${session.usuariosession != null}"  th:href="@{/capacitacion/registro/__${session.usuariosession.id}__}">Agregar capacitaciones</a></li>
+                        <li class="list m-2"><a  style="text-decoration: none" class="text-black" th:if="${session.usuariosession != null}"  th:href="@{/interes/registro/__${session.usuariosession.id}__}">Agregar intereses</a></li>
+                        <li class="list m-2"><a  style="text-decoration: none" class="text-black" th:if="${session.usuariosession != null}"  th:href="@{../logout}">Salir</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="d-flex text-dark">
+                    <h3 th:text="${usuario.nombre}" class="nombre">Nombre</h3>
+                    <h3  th:text="${usuario.apellido}"  class="nombre">Apellido</h3>
+                </div>
+
+                <div class="nacionalidad">
+                    <div class="provincia">
+                        <p>Provincia:
+                            <h4 th:text="${usuario.provincia}">Provincia</h4>
+                        </p>
+                    </div>
+                    <div class="pais">
+                        <p>Pais:
+                            <h4 th:text="${usuario.pais}">País</h4>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="imagen d-flex justify-content-center align-items-centers">
+                    <img  th:src="@{/usuario/perfil/__${session.usuariosession.id}__}" class="rounded-circle imagen-perfil" alt="foto de perfil">
+                </div>
+
+            </div>
+
+        </header>
+        <!--BOTON PARA EDITAR FOTO-->
+        <div class="editar-foto d-flex justify-content-end mb-3" >
+            <a type="submit" class="btn btn-light" th:href="@{../usuario/panel/modificar-foto/__${session.usuariosession.id}__}"><i class='bx bx-message-square-edit'>CAMBIAR FOTO PERFIL</i></a>
+        </div>   
+
+        <main>
+            <div class="container2">
+                <div class="acercademi">
+                    <h1>Acerca de mi</h1>
+                </div>
+                <div class="textoacercademi">
+                    <p class="texto text-center" th:text="${usuario.descripcion}"><!--SOBRE MI(descripcion)--></p>  
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <!--capacitaciones-->
+                <seccion class="container-caja">            
+                    <div class="titulo-caja">                    
+                        <h3 ><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{/capacitacion/listarPorUsuario/__${session.usuariosession.id}__}"></a>Mis Capacitaciones</h3> 
+                    </div>
+                    <div class="contenido-caja">                                 
+                        <p >
+                            <ul class="lista-datos d-flex " th:each="capacitacion: ${session.usuariosession.capacitaciones}">
+                                <li class="text-dark" th:text ="${capacitacion.nombre}"></li>
+                            </ul> 
+                        </p>                    
+                    </div>
+                </seccion>
+                <!--intereses-->
+                <seccion class="container-caja">
+                    <div class="titulo-caja">                    
+                        <h3 ><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{/interes/listarPorUsuario/__${session.usuariosession.id}__}"></a>Mis Intereses</h3> 
+                    </div>
+                    <div class="contenido-caja">                                 
+                        <p >
+                            <ul class="lista-datos d-flex " th:each="interes: ${session.usuariosession.intereses}">
+                                <li class="text-dark" th:text ="${interes.Interes}"></li>
+                            </ul> 
+                        </p>                    
+                    </div>            
+                </seccion>
+            </div>
+        </main>
+
+    </body>
+
+    <!--   <body class="index">
+           <section class="form-perfil-usuario">
+               <div class="perfil-usuario-header">
+   
+                   <div class="perfil-usuario-portada d-flex flex-column justify-content-center">
+                       <div class="perfil-usuario-avatar">
+                           <img th:src="@{./../img/avatar.png}" style="width: 200px" alt="img.avatar">
+                           <img th:src="@{/usuario/perfil/__${session.usuariosession.id}__}" class="rounded-circle" style="width: 150px" alt="img.avatar">
+                       </div>
+   
+                        MENU- EN ICONO
+                        DROPDOWN DE INGRESAR CAPACIDADES E INTERESES  REPORTES DROPDOWN DE VER Y MODIFICAR CAPACIDADES E INTERESES DROPDOWN DE EDITAR Y SALIR
+                       <div class="dropdown display-6">
+                           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                               <i class='bx bx-menu '></i>
+                           </a>
+                           <ul class="dropdown-menu text-small">
+                               <li><a  style="text-decoration: none" class="dropdown-item px-5 link-dark" th:if="${session.usuariosession != null}"  th:href="@{/capacitacion/registro/__${session.usuariosession.id}__}">Registrar Capacitaciones</a></li>
+                               <li><a  style="text-decoration: none" class="dropdown-item px-5 link-dark" th:if="${session.usuariosession != null}"  th:href="@{/interes/registro/__${session.usuariosession.id}__}">Registrar Intereses</a></li>
+                               <li class="dropdown-item px-5 link-dark" ><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{/capacitacion/listarPorUsuario/__${session.usuariosession.id}__}">Mis Capacitaciones</a></li>
+                               <li class="dropdown-item px-5 link-dark"><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{/interes/listarPorUsuario/__${session.usuariosession.id}__}">Mis Intereses</a></li>
+                               <li class="dropdown-item px-5 link-dark" ><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{/usuario/editar/__${session.usuariosession.id}__}">Editar Perfil</a></li>
+                               <li class="dropdown-item px-5 link-dark" ><a  style="text-decoration: none" class="text-dark" th:if="${session.usuariosession != null}"  th:href="@{../logout}">Salir</a></li>
+                           </ul>
+                       </div>
+   
+                        BOTON PARA EDITAR FOTO
+                       <div class="editar-foto d-flex justify-content-end mb-3" >
+                           <a type="submit" class="btn btn-md btn-light" th:href="@{../usuario/panel/modificar-foto/__${session.usuariosession.id}__}"><i class='bx bx-message-square-edit'>CAMBIAR FOTO</i></a>
+                       </div>                                                               
+   
+                   </div>  
+               </div>
+   
+   
+   
+                SECCION NOMBRE Y DESCRIPCION
+               <section class="perfil-usuario-body d-flex justify-content-center ">               
+                   <div class="perfil-usuario-bio d-flex flex-column justify-content-center "> 
+                       <div class=" titulo d-flex gap-2 justify-content-center">
+                           <h3  th:text="${usuario.nombre}" ></h3> NOMBRE(nombre)
+                           <h3  th:text="${usuario.apellido}" ></h3> APELLIDO(apellido)
+                       </div>                    
+                       <p class="texto text-center" th:text="${usuario.descripcion}">SOBRE MI(descripcion)</p>                         
+                   </div>
+   
+               </section>
+   
+                SECCION MIS CAPACITACIONES
+   
+               <section class="perfil-usuario-body ">               
+                   <div class="perfil-usuario-bio">
+                       <h6 class="titulo display-6">MIS CAPACITACIONES</h6>
+                       <ul class="lista-datos d-flex " th:each="capacitacion: ${session.usuariosession.capacitaciones}">
+                           <li class="text-dark" th:text ="${capacitacion.nombre}"></li>
+                       </ul> 
+                   </div>
+   
+               </section>
+   
+                SECCION MIS INTERESES
+               <section class="perfil-usuario-body ">               
+                   <div class="perfil-usuario-bio">
+                       <h6 class=" titulo display-6">MIS INTERESES</h6>
+                       <ul class="lista-datos d-flex " th:each="interes: ${session.usuariosession.intereses}">
+                           <li class="text-dark" th:text ="${interes.Interes}"></li>
+                       </ul>         
+                   </div>
+               </section>
+               <div class="redes-sociales">
+                   <a href="" class="boton-redes"><i class="icono-facebook"></i></a>
+                   <a href="" class="boton-redes"><i class="icono-instagram"></i></a>
+                   <a href="" class="boton-redes"><i class="icono-linkedin"></i></a>
+               </div>    
+               </div>
+           </section>
+       </body>-->
+</html>

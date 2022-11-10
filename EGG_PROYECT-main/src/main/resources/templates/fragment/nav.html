@@ -1,0 +1,14 @@
+<header class="p-3 mb-3 bg-warning header_border">
+    <div class="container">     
+        <div class="d-flex flex-wrap align-items-center justify-content-end justify-content-lg-between">
+            <nav class=" col-10 d-flex justify-content-between mb-3">
+
+                <nav sec:authorize="hasRole('USER')">
+                    <div class="m-2">
+                        <button type="button" class="btn btn-warning px-4"> <a type="submit" class="btn btn-md btn-secondary" th:href="@{/usuario/panel}" style="text-decoration:none">Volver al perfil </a></button>
+                    </div>
+                </nav>
+            </nav>
+        </div>
+    </div>
+</header>
